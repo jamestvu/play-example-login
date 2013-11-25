@@ -1,9 +1,8 @@
 package views.formdata;
 
-import play.data.validation.ValidationError;
 import java.util.ArrayList;
 import java.util.List;
-import models.UserInfoDB;
+import play.data.validation.ValidationError;
 
 /**
  * Backing class for the login form.
@@ -28,12 +27,12 @@ public class LoginFormData {
   public List<ValidationError> validate() {
 
     List<ValidationError> errors = new ArrayList<>();
-    
-    if (!UserInfoDB.isValid(email, password)) {
+    /*
+    //if (!UserInfoDB.isValid(email, password)) {
       errors.add(new ValidationError("email", ""));
       errors.add(new ValidationError("password", ""));      
-    }
-
+    //}
+  */
     return (errors.size() > 0) ? errors : null;
   }
 
