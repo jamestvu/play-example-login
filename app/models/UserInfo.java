@@ -1,12 +1,17 @@
 package models;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import play.db.ebean.Model;
 
 /**
  * A simple representation of a user. 
  * @author Philip Johnson
  */
+@Entity
 public class UserInfo {
  
   private String name;
+  @Id
   private String email;
   private String password;
   
