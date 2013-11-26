@@ -2,6 +2,7 @@ package views.formdata;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.UserInfo;
 import play.data.validation.ValidationError;
 
 /**
@@ -27,12 +28,13 @@ public class LoginFormData {
   public List<ValidationError> validate() {
 
     List<ValidationError> errors = new ArrayList<>();
-    /*
-    //if (!UserInfoDB.isValid(email, password)) {
+
+    boolean valid = UserInfo.find().where().eq("email", email).eq("password", password).findRowCount() == 1;
+    if (!valid) {
       errors.add(new ValidationError("email", ""));
-      errors.add(new ValidationError("password", ""));      
-    //}
-  */
+      errors.add(new ValidationError("password", ""));
+    }
+    
     return (errors.size() > 0) ? errors : null;
   }
 
